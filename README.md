@@ -128,19 +128,31 @@ fireflies-clone/
 
 ## Database schema
 
-```mermaid
-erDiagram
-    users ||--o{ meetings : owns
-    meetings ||--o{ meeting_participants : has
-    participants ||--o{ meeting_participants : attends
-    meetings ||--o{ transcript_segments : contains
-    participants ||--o{ transcript_segments : speaks
-    meetings ||--o| summaries : has
-    meetings ||--o{ chapters : has
-    meetings ||--o{ action_items : has
-    participants ||--o{ action_items : "assigned to"
-    transcript_segments ||--o{ action_items : "source of"
-    meetings ||--o{ ask_messages : has
+```text
+┌──────────┐        ┌──────────────┐        ┌──────────────────────┐        ┌──────────────┐
+│  users   │ 1    N │   meetings   │ 1    N │ meeting_participants │ N    1 │ participants │
+│──────────│───────▶│──────────────│───────▶│──────────────────────│◀───────│──────────────│
+│ id (PK)  │        │ id (PK)      │        │ meeting_id (PK, FK)  │        │ id (PK)      │
+│ name     │        │ owner_id FK  │        │ participant_id (PK,FK│        │ name (uniq)  │
+│ email    │        │ title        │        │ role, position       │        │ email, color │
+└──────────┘        │ meeting_date │        └──────────────────────┘        └──────┬───────┘
+                    │ duration_sec │                                               │
+                    └──────┬───────┘                                               │
+          ┌────────────┬───┴────────┬──────────────┬─────────────┐                 │
+          │ 1:N        │ 1:1        │ 1:N          │ 1:N         │ 1:N             │
+          ▼            ▼            ▼              ▼             ▼                 │
+┌───────────────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐ ┌──────────────┐  │
+│transcript_segments│ │summaries │ │ chapters │ │ action_items │ │ ask_messages │  │
+│───────────────────│ │──────────│ │──────────│ │──────────────│ │──────────────│  │
+│ id, meeting_id FK │ │meeting_id│ │meeting_id│ │ meeting_id FK│ │ meeting_id FK│  │
+│ speaker_id FK ────┼─┼──────────┼─┼──────────┼─┼─assignee_id FK◀┼──────────────┼──┘
+│ position          │ │ overview │ │ title    │ │ source_seg FK│ │ role, content│
+│ start_ms, end_ms  │ │ keywords │ │ start_ms │ │ due, done    │ │ citations    │
+│ text              │ └──────────┘ └──────────┘ └──────▲───────┘ └──────────────┘
+└─────────┬─────────┘                                  │
+          └──────────── source_segment_id (SET NULL) ──┘
+
+Deleting a meeting cascades to its segments, summary, chapters, action items and chat.
 ```
 
 | Table | Key columns | Notes |
