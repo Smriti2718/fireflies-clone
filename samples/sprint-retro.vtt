@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:02.000 --> 00:00:08.500
+<v Rina Das>Okay, let's start the sprint retro. What went well this sprint?
+
+00:00:09.000 --> 00:00:17.000
+<v Kofi Mensah>The new CI pipeline cut build times from twelve minutes to four. That made a huge difference for reviews.
+
+00:00:17.500 --> 00:00:25.000
+<v Rina Das>Agreed. What didn't go well?
+
+00:00:25.500 --> 00:00:36.000
+<v Kofi Mensah>We kept getting blocked on design for the settings page. Specs arrived mid-sprint.
+
+00:00:36.500 --> 00:00:46.000
+<v Rina Das>Kofi, can you set up a design handoff checklist so specs are final before planning?
+
+00:00:46.500 --> 00:00:52.000
+<v Kofi Mensah>Sure, I'll draft it by Wednesday and share it in the team channel.

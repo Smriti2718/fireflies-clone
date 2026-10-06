@@ -1,0 +1,9 @@
+{
+  "segments": [
+    {"speaker": "Leah Cohen", "start": 1.0, "end": 7.5, "text": "Thanks for hopping on. I want to understand how your support team handles escalations today."},
+    {"speaker": "Victor Osei", "start": 8.0, "end": 18.0, "text": "Escalations go to a shared inbox, and honestly things slip. Last week two urgent tickets waited over a day."},
+    {"speaker": "Leah Cohen", "start": 18.5, "end": 26.0, "text": "That's painful. Would routing urgent tickets to Slack with an owner help?"},
+    {"speaker": "Victor Osei", "start": 26.5, "end": 34.0, "text": "Yes, as long as there's an audit trail. Our compliance team will ask for that."},
+    {"speaker": "Leah Cohen", "start": 34.5, "end": 43.0, "text": "Great. I'll send over our audit log documentation and a pilot plan by Friday."}
+  ]
+}

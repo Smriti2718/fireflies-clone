@@ -1,0 +1,5 @@
+[00:00:03] Mei Tanaka: Let's go through the dashboard mockups. I simplified the header to a single row.
+[00:00:11] Omar Haddad: Much cleaner. The filter chips are hard to tap on mobile though.
+[00:00:18] Mei Tanaka: Good point, I'll bump them to forty-four pixels and re-test on a phone.
+[00:00:26] Omar Haddad: Can you also export the icon set so engineering can start?
+[00:00:31] Mei Tanaka: Yes, I'll export it to the shared drive today.
